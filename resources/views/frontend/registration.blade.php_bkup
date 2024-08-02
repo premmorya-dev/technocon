@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+
+{!! $data['form_setting']['after_headscript']  !!}
+    <!-- Document Title
+	============================================= -->
+    <title>{{ $data['form_setting']['registration_meta_title'] }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="author" content="technocon.org">
+    <meta name="description" content="{{ $data['form_setting']['registration_meta_title'] }}">
+    <meta name="keywords" content="{{ $data['form_setting']['registration_meta_title'] }}" />
+    <meta property="fb:app_id" content="" />
+    <meta property="og:type" content="event" />
+    <meta property="og:title" content="{{ $data['form_setting']['registration_meta_og_titile'] }}" />
+    <meta property="og:url" content="{{ $data['form_setting']['registration_meta_og_url'] }}" />
+    <meta property="og:image" content="{{ $data['form_setting']['registration_meta_og_image'] }}" alt="tryst-2024-workshop" />
+    <meta property="og:image:width" content="{{ $data['form_setting']['registration_meta_og_image_width'] }}" />
+    <meta property="og:image:height" content="{{ $data['form_setting']['registration_meta_og_image_height'] }}" />
+    <meta property="og:description" content="{{ $data['form_setting']['registration_meta_og_description'] }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:title" content="{{ $data['form_setting']['registration_meta_twitter_title'] }}" />
+    <meta name="twitter:image" content="{{ $data['form_setting']['registration_meta_twitter_image'] }}" />
+    <meta name="twitter:image:width" content="{{ $data['form_setting']['registration_meta_twitter_image_width'] }}" />
+    <meta name="twitter:image:height" content="{{ $data['form_setting']['registration_meta_twitter_image_height'] }}" />
+    <meta property="product:price:amount" content="1990" />
+    <meta property="product:price:currency" content="INR" />
+    <link rel="icon" href="{{ $data['form_setting']['registration_meta_icon'] }}">
+
+
+
+
+    <!-- Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Cookie&display=swap" rel="stylesheet">
+
+    <!-- Core Style -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }} ">
+
+    <!-- Font Icons -->
+    <link rel="stylesheet" href="{{ asset('assets/css/registration/font-icons.css') }}">
+
+    <!-- Plugins/Components CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/registration/swiper.css') }}">
+
+    <!-- Saas Page Module Specific Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('assets/css/registration/saas-2.css') }}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/registration/saas-2.css/custom.css') }}">
+
+
+
+    {!! $data['form_setting']['registration_meta_ld_json']  !!}
+    <script src="{{ asset('assets/js/jquery.js')  }}"></script>
+    <script src="{{ asset('assets/js/dselect.js') }}"></script>
+
+
+
+		<style>
+.loading-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+}
+.loader
+{
+    display: none;
+    width: 100px;
+    position: fixed;
+    text-align: center;
+    z-index: 2;
+    left: 45%;
+    top: 40%;
+  
+
+}</style>
+
+{!! $data['form_setting']['before_body_script']  !!}
+</head>
+
+<body class="stretched">
+    <!-- <div class="loader">
+   <div class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+  
+</div> -->
+
+    <!-- Document Wrapper
+	============================================= -->
+    {!! $data['form_setting']['start_body_script']  !!}
+    <div id="wrapper">
+
+        <!-- Header
+		============================================= -->
+
+        <!-- #header end -->
+
+
+
+
+        <!-- Registration section start
+		============================================= -->
+
+
+        <section id="registration-form">
+            <div class="content-wrap content-wrap-workshop-registration">
+                <div class="container">
+                    <div class="mx-auto mb-0" id="tab-login-register" style="max-width: 700px;">
+                        <div class="card mb-0s">
+                            <div class="card-body" style="padding: 10px;">
+                                <div class="row " style="border-bottom:var(--cnvs-themecolor) solid 5px;">
+                                    <div>
+                                        <img src="{{ asset($data['form_setting']['email_header_banner_url']) }}"  alt="{{ asset($data['form_setting']['email_header_banner_alt']) }}" >
+                                    </div>
+                                </div>
+
+                                <form id="user_signup" name="user_signup" method="post" class="mb-0" method="post">
+                                  
+                                @if( $data['form_setting']['registration_form_show_importants_notes'] == 'Y')
+                                <div data-readmore="true" data-readmore-trigger-open="Read More <i class='fa-solid fa-chevron-down'></i>" data-readmore-trigger-close="Read Less <i class='fa-solid fa-chevron-up'></i>" class="read-more-wrap" style="transition-duration: 500ms; height: 10rem;">
+                                {!! $data['form_setting']['registration_form_importants_notes']  !!}
+                                    </div>
+
+  
+                                @endif
+                                           
+
+                               
+
+
+
+                                    <div class="promo promo-light">
+                                        <h4 class="mt-3 center"> {{ $data['form_setting']['registration_page_form_heading'] }} </h4>
+
+                                    </div>
+
+                                    <div class="row">
+                                      
+                                        <div class="col-md-12 form-group">
+                                            @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                            <label for="name">First Name*:</label>
+                                            @endif
+                                           
+
+                                            <input type="text" value="" title="Name" placeholder="First Name" onKeyUp="return check_fist_name_error(this.value)" id="first_name" name="first_name" class="form-control">
+
+                                            <span class="text-danger"  id="error-msgname"></span>
+
+                                        </div>
+
+                                        <div class="col-md-12 form-group" >
+                                        @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                             <label for="last_name">Last Name*:</label>
+                                         @endif
+                                           
+                                            <input type="text" value="" title="Last Name" onKeyUp="return check_last_name_error(this.value)" placeholder="Last Name" id="last_name" name="last_name" class="form-control">
+
+                                            <span class="text-danger"  id="error-msglname"></span>
+
+                                        </div>
+
+
+                                        <div class="col-md-12 form-group">
+                                        @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                               <label for="email">Email*:</label>
+                                         @endif
+                                         
+                                            <input type="email" id="email_id" onKeyUp="return check_mail1_error(this.value)" name="email_id" title="Email ID" placeholder="Email Id" value="" class="form-control">
+
+                                            <span class="text-danger"  id="error-msgemail"></span>
+
+                                        </div>
+
+                                     
+                                        <div class="col-md-12 form-group" style="margin-bottom:0px !important;">
+                                        @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                              <label for="mobile">Mobile*:</label>
+
+                                         @endif
+
+                                        </div>
+
+
+                                        <div class="col-md-4 form-group" id="select-error-mobile_country_code_id">
+                                                     <select name="mobile_country_code_id" id="mobile_country_code_id" onChange="return check_mobile_country_code_id_error(this.value)" class="select-hide form-select select2-hidden-accessible">
+                                                        <option value="0">[Country Code]</option>
+                                                        @foreach( $data['mobile_country_list'] as $mobile_country_code)
+                                                            <option value="{{ $mobile_country_code->mobile_country_code_id }}" {{ old('mobile_country_code_id', $data['form_setting']['registration_default_mobile_country']) == $mobile_country_code->mobile_country_code_id ? 'selected' : '' }} >{{ $mobile_country_code->country_name  }} ( +{{ $mobile_country_code->country_code }} )</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <!--!select start! -->
+                                            <span class="text-danger"  id="error-msgmobile_country_code_id"></span>
+
+                                        </div>
+
+                                        <div class="col-md-8  form-group">
+                                                    <input type="text" maxlength="10" id="mobile" onKeyUp="return check_mobile_error(this.value)" name="mobile" title="Mobile No" placeholder="10 Digit Mobile Number" value="" class="form-control">
+                                                    <span class="text-danger"  id="error-msgmobile"></span>
+
+                                        </div>
+
+
+                                        @if( $data['form_setting']['registration_enable_college_insitute_field'] == 'Y')
+                                            <div class="col-md-12 form-group">
+                                            @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                                    <label for="college_name">College Name*:</label>
+
+                                                @endif
+                                                
+                                                <input type="text" value="" title="College/School" placeholder="Your College/School/Institute/University/Company etc" onKeyUp="return check_collage_name_error(this.value)" id="c_name" name="college_name" class="form-control">
+
+                                                <span class="text-danger"  id="error-msgcollege"></span>
+                                            </div>
+                                        @endif
+
+
+                                        @if( $data['form_setting']['registration_enable_city_field'] == 'Y')
+                                                <div class="col-md-12 form-group">
+                                                @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                                        <label for="city">City*:</label>
+                                                 @endif
+                                                  
+                                                    <input type="text" value="" title="City" placeholder="City" onKeyUp="return check_city_name_error(this.value)" id="city" name="city" class="form-control">
+
+                                                    <span class="text-danger"  id="error-msgcity"></span>
+                                                </div>
+                                        @endif
+
+                                        @if( $data['form_setting']['registration_enable_country_field'] == 'Y')
+                                               
+                                                <div class="col-md-12 form-group" id="select-error-country_id">
+                                                        @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                                        <label for="Select Country">Select Country*:</label>
+                                                        @endif
+                                                    <!--!select start! -->
+                                                    <select name="country_id" id="country_id" onChange="return check_country_id_error(this.value)" class="select-hide form-select select2-hidden-accessible">
+                                                        <option value="0">[Select Country Type]</option>
+                                                        @foreach( $data['country'] as $country)
+                                                            <option value="{{ $country->mobile_country_code_id }}" {{ old('country_id') == $country->mobile_country_code_id ? 'selected' : '' }} >{{ $country->country_name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <!--!select start! -->
+
+                                                    <span class="text-danger"  id="error-msgcountry_id"></span>
+
+                                                </div>
+
+                                        
+                                        @endif
+
+                                        @if( $data['form_setting']['registration_enable_state_field'] == 'Y')
+                                               
+                                               <div class="col-md-12 form-group" id="select-error-state_id">
+                                                       @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                                       <label for="Select State">Select State*:</label>
+                                                       @endif
+                                                   <!--!select start! -->
+                                                   <select name="state_id" id="state_id" onChange="return check_state_id_error(this.value)" class="select-hide form-select select2-hidden-accessible">
+                                                       <option value="0">[Select State Type]</option>
+                                                       @foreach( $data['country_to_state_code'] as $state)
+                                                           <option value="{{ $state->country_state_id }}" {{ old('country_state_id') == $state->country_state_id ? 'selected' : '' }} >{{ $state->state_name }}</option>
+                                                       @endforeach
+                                                   </select>
+                                                   <!--!select start! -->
+
+                                                   <span class="text-danger"  id="error-msgstate_id"></span>
+
+                                               </div>
+
+                                       
+                                       @endif
+
+
+                                        
+                                        <div class="col-md-12 form-group" id="select-error-program">
+                                                @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                                  <label for="Select Workshop">Select Workshop*:</label>
+                                                 @endif
+                                            <!--!select start! -->
+                                            <select name="program_id" id="program" onChange="return check_program_error(this.value)" class="select-hide form-select select2-hidden-accessible">
+                                                <option value="0">[Select Workshop Type]</option>
+                                                @foreach( $data['event_program'] as $program)
+                                            <option value="{{ $program->program_id }}" {{ old('program_id') == $program->program_id ? 'selected' : '' }} >{{ $program->program_name }} ( {{ $program->start_dates }} ) {{ $program->program_duration }} {{ $program->program_duration_time_unit }} </option>
+                                                @endforeach
+
+                                            </select>
+                                            <!--!select start! -->
+
+                                            <span class="text-danger"  id="error-msgworktype"></span>
+
+                                        </div>
+
+
+                                        <div class="col-md-12 form-group" id="seat-container">
+                                      
+                                            
+
+                                          @if( $data['event_program_max_count'] == 'show_seat')
+                                                @if( $data['form_setting']['registration_show_fields_name_lables'] == 'Y')
+                                                        <label for="login-form-password">Seats*:</label>
+                                                @endif
+                                          <select name="seats" id="seats" onChange="return check_seats_error(this.value)" style="font-size:14px;" class="select-hide form-select select2-hidden-accessible">
+                                                <option value="">[Select Seats]</option>
+
+                                            </select>
+                                            <span class="text-danger"  id="error-msgseat"></span>
+                                          @endif
+
+                                          
+
+
+                                       
+                                            <input type="hidden" value="1" name="currency_id">
+                                           
+                                            <input type="hidden" value="0" name="country_state_id">
+                                            <input type="hidden" name="college" id="workshop_level" value="college">
+
+
+
+
+                                        </div>
+
+
+                                           @if( $data['form_setting']['registration_enable_terms_condition_checkbox'] == 'Y')
+                                                <div class="col-md-12 form-group">                                     
+                                                        <input type="checkbox" id= "agree" class=""  name="">
+                                                        <label >Agree Term and Condition</label>   <br>
+                                                        <span class="text-danger"  id="error-msgagree"></span>                                   
+                                                </div>
+                                             @endif
+
+                                             <div class="col-md-12 form-group">                                
+                                                       
+                                                        <span class="text-danger"  id="error-user_exist"></span>                                   
+                                                </div>
+                                      
+
+                                      
+
+                                        <div class="col-md-12 form-group">
+
+                                            <div class="mb-2 mt-2 center">
+                                                <span style="text-align:center"><button href="javascript:;" title="Register" class="button button-large px-lg-5 py-lg-3  m-0 mb-4 g-recaptcha" data-sitekey="6LeAVEgpAAAAADDlL2Ozqy8Sfqzj3FsxSFyAATSV" data-callback='register_workshop' data-action='submit'><i class="fa-solid fa-right-to-bracket"></i>Register</button></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input id="utm_source" type="hidden" name="utm_source" value="">
+                                    <input id="rff" type="hidden" name="referrer" value="">
+                                    <input id="utm_medium" type="hidden" name="utm_medium" value="">
+                                    <input id="utm_campaign" type="hidden" name="utm_campaign" value="">
+                                    <input id="utm_term" type="hidden" name="utm_term" value="">
+                                    <input id="utm_content" type="hidden" name="utm_content" value="">
+                                    <input id="full_url" type="hidden" name="full_url" value="">
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+        </section><!-- #registration section end -->
+
+
+
+
+        <!-- workshop list section start
+		============================================= -->
+        @if( $data['form_setting']['show_program_tiles_registration_page'] == 'Y')
+            <section id="workshop-grid-list">
+                <div class="content-wrap content-wrap-workshop-registration">
+                    <div class="container">
+                        <div class="mx-auto mb-0" id="tab-login-register" style="max-width: 700px;">
+                            <div class="card mb-0">
+                                <div class="card-body" style="padding: 10px;">
+
+                                    <div class="promo promo-light">
+                                        <h4 class="mt-3 center">All Workshops of Tryst 2024 IIT Delhi </h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </section>
+        @endif
+
+      
+        
+        
+        <!-- #workshop grid section end -->
+
+
+
+
+
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
+        <script src="{{ asset('assets/js/functions.bundle.js') }}"></script>
+
+        {!! $data['form_setting']['end_body_script']  !!}
+    </div><!-- #wrapper end -->
+
+    <!-- Go To Top
+	============================================= -->
+    <div id="gotoTop" class="uil uil-angle-up rounded-circle bg-color h-bg-dark"></div>
+
+</body>
+
+</html>
+
+
+<script>
+    const error = new Array();
+   
+    
+   
+    function check_mobile_country_code_id_error(mobile_country_code_id) {
+        var error_msg = 'Please select country code';
+
+        if ((mobile_country_code_id == "" || mobile_country_code_id == "0" || !mobile_country_code_id)) {
+                $('#error-msgmobile_country_code_id').text(error_msg);
+                $('#select-error-mobile_country_code_id .form-select ').addClass('is-invalid');
+                $("#mobile_country_code_id").focus();
+                $('#error-msgmobile_country_code_id').show();
+                return false;
+        }else{  
+                $('#error-msgmobile_country_code_id').text('');
+                $('#select-error-mobile_country_code_id .form-select ').removeClass('is-invalid');
+                $("#mobile_country_code_id").focus();
+                $('#error-msgmobile_country_code_id').hide();
+                return true;
+        }
+    }
+  
+
+
+    function check_agree_error() {
+        var error_msg = 'Please select agree term and condition';
+        var checkbox = document.querySelector('#agree');
+        if ($('#agree').length) { 
+                        if (checkbox.checked) {
+                            $('#error-msgagree').text('');
+                            $('#agree').removeClass('is-invalid');
+                            $("#agree").focus();
+                            $('#error-msgagree').hide();
+                            return true;
+                    }else{  
+                            $('#error-msgagree').text(error_msg);
+                            $('#agree').addClass('is-invalid');
+                            $("#agree").focus();
+                            $('#error-msgagree').show();
+                            return false;
+                    }
+            }else{
+                return true;
+            }
+        
+    }
+  
+
+
+    function check_state_id_error(state_id) {  
+        var error_msg = 'Please Select State..';
+        if ($('#state_id').length) {
+            if ((state_id == "" || state_id == "0" || !state_id)) {
+            $('#error-msgstate_id').text(error_msg);
+            $('#select-error-state_id .form-select ').addClass('is-invalid');
+            $("#state_id").focus();
+            $('#error-msgstate_id').show();
+            return false;
+        } else {
+            $('#error-msgstate_id').text('');
+            $('#select-error-state_id .form-select ').removeClass('is-invalid');
+            $('#error-msgstate_id').hide();
+            return true;
+        }
+        }else{
+                return true;
+            }
+       
+    }
+
+    function check_country_id_error(country_id) { 
+        var error_msg = 'Please Select Country..';
+        if ($('#country_id').length) {
+                    if ((country_id == "" || country_id == "0" || !country_id)) {
+                    $('#error-msgcountry_id').text(error_msg);           
+                    $('#select-error-country_id .form-select ').addClass('is-invalid');
+                    $("#country_id").focus();
+                    $("#country_id").focus();
+                    $('#error-msgcountry_id').show();
+                    return false;
+                } else {
+                    $('#error-msgcountry_id').text('');
+                    $('#select-error-country_id .form-select ').removeClass('is-invalid');
+                    $('#error-msgcountry_id').hide();
+                    return true;
+                }
+        }else{
+                return true;
+            }
+       
+    }
+
+
+    function check_distt_error(distt) {
+        if ((distt == "") || (distt.length <= 2)) {
+            $("#distt").addClass('is-invalid');
+            $("#distt").focus();
+            return false;
+        } else {
+
+            $("#distt").removeClass('is-invalid');
+            return true;
+        }
+    }
+
+ 
+
+    function check_seats_error(seats) {
+        var error_msg = 'Please Select Seats..';
+
+        if ($('#seats').length) { 
+                            if ((seats == "")) {
+                            $('#error-msgseat').text(error_msg);
+                            $("#seats").addClass('is-invalid');
+                            $("#seats").focus();
+                            $('#error-msgseat').show();
+                            $('.errormsg').show();
+                            return false;
+                        } else {
+                            $('#error-msgseat').text('');
+                            $("#seats").removeClass('is-invalid');
+                            $('#error-msgseat').hide();
+                            $('.errormsg').hide();
+                            return true;
+                        }
+            }else{
+                return true;
+            }
+
+       
+    }
+
+
+    function check_check_in_error(check_in) {
+        if ((check_in == "")) {
+            $("#check_in").addClass('is-invalid');
+            $("#check_in").focus();
+            return false;
+        } else {
+
+            $("#check_in").removeClass('is-invalid');
+            return true;
+        }
+    }
+
+
+    function check_check_out_error(check_out) {
+        if ((check_out == "")) {
+            $("#check_out").addClass('is-invalid');
+            $("#check_out").focus();
+            return false;
+        } else {
+
+            $("#check_out").removeClass('is-invalid');
+            return true;
+        }
+    }
+
+
+    function check_login_email_error(login_email) {
+
+        var filter = /^([\w-\.]+)@((\[[0-9]{1,9}\.[0-9]{1,9}\.[0-9]{1,9}\.)|(([\w-]+\.)+))([a-zA-Z]{2,9}|[0-9]{1,9})(\]?)$/;
+        if (filter.test(login_email)) {
+            $("#login_email").removeClass('is-invalid');
+            return true;
+        } else {
+            $("#login_email").addClass('is-invalid');
+            $("#login_email").focus();
+            return false;
+        }
+    }
+
+
+    function check_login_reg_error(login_reg) {
+        if ((login_reg == "")) {
+            $("#login_reg").addClass('is-invalid');
+            $("#login_reg").focus();
+
+            return false;
+        } else {
+
+            $("#login_reg").removeClass('is-invalid');
+            return true;
+        }
+    }
+
+    function check_collage_name_error(collage_name) { 
+        var error_msg = 'Please Enter Your College Name.';
+        if ($('#c_name').length) { 
+                            if (collage_name == "") {
+                            $('#error-msgcollege').text(error_msg);
+                            $("#c_name").addClass('is-invalid');
+                            $("#c_name").focus();
+                            $('#error-msgcollege').show();
+                            $('.errormsg').show();
+                            return false;
+                        } else {
+                            $('#error-msgcollege').text('');
+                            $("#c_name").removeClass('is-invalid');
+                            $('#error-msgcollege').hide();
+                            $('.errormsg').hide();
+                            return true;
+                        }
+            }else{
+                return true;
+            }
+     
+    }
+
+
+
+    function check_city_name_error(city_name) {
+        var error_msg = 'Please Enter Your City Name.';
+        if ($('#city').length) {
+                            if (city_name == "" || !city_name) {
+                            $('#error-msgcity').text(error_msg);
+                            $("#city").addClass('is-invalid');
+                            $("#city").focus();
+                            $('#error-msgcity').show();
+                            $('.errormsg').show();
+                            return false;
+                        } else {
+                            $('#error-msgcity').text('');
+                            $("#city").removeClass('is-invalid');
+                            $('#error-msgcity').hide();
+                            $('.errormsg').hide();
+                            return true;
+                        }
+            }else{
+                return true;
+            } 
+     
+    }
+
+    function check_mobile_error(mob) {
+        var numericString = mob;
+        var firstDigit = parseInt(numericString.charAt(0), 10);
+        var error_msg = '';
+        if ((isNaN(mob)) || (mob == "") || (mob.length <= 9)) {
+            error_msg = 'Please Enter Your Valid Mobile No.';
+            $('#error-msgmobile').text(error_msg);
+            $("#mobile").addClass(' is-invalid');
+            $("#mobile").focus();
+            $('#error-msgmobile').show();
+            $('.errormsg').show();
+            return false;
+        } else if (firstDigit == 0) {
+            error_msg = 'First Digit should not be 0';
+            $('#error-msgmobile').text(error_msg);
+            $('#error-msgmobile').show();
+            $('.errormsg').show();
+        } else {
+            $('#error-msgmobile').text('');
+            $("#mobile").removeClass('is-invalid');
+            $('#error-msgmobile').hide();
+            $('#error-msgmobile').hide();
+            $('.errormsg').hide();
+            return true;
+        }
+    }
+
+
+    function check_mail1_error(email) {
+        var filter = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var error_msg = 'Please Enter Valid Email ID .';
+        if (filter.test(email)) {
+            $('#error-msgemail').text('');
+            $("#email_id").removeClass('is-invalid');
+            $('#error-msgemail').hide();
+            $('.errormsg').hide();
+            return true;
+        } else {
+            $('#error-msgemail').text(error_msg);
+            $("#email_id").addClass('is-invalid');
+            $("#email_id").focus();
+            $('#error-msgemail').show();
+            $('.errormsg').show();
+            return false;
+        }
+    }
+
+    function check_last_name_error(last_name) {
+        var pattern = /[^a-z|^A-Z|^\s]/;
+        var last_name = $("#last_name").val();
+        var error_msg = 'Please Enter Valid Last Name..';
+
+        if ($('#last_name').length) { 
+                                if (document.getElementById("last_name").value.match(pattern)) {
+                                $('#error-msglname').text(error_msg);
+                                $("#last_name").addClass('is-invalid');
+                                $('#error-msglname').show();
+                                $('.errormsg').show();
+                                return false;
+                            } else if ((last_name == "")) {
+                                $('#error-msglname').text(error_msg);
+                                $("#last_name").addClass(' is-invalid');
+                                $('#error-msglname').show();
+                                $('.errormsg').show();
+                                return false;
+                            } else {
+                                $('#error-msglname').text('');
+                                $("#last_name").removeClass(' is-invalid');
+                                $('#error-msglname').hide();
+                                $('.errormsg').hide();
+                                return true;
+                            }
+            }else{
+                return true;
+            }
+
+
+    
+    }
+
+
+
+    function check_fist_name_error(first_name) { 
+        var pattern = /[^a-z|^A-Z|^\s]/;
+        var first_name = $("#first_name").val();
+        var name = isNaN(first_name);
+        var error_msg = 'Please Enter Valid First Name..';
+        if (document.getElementById("first_name").value.match(pattern)) {
+            $('#error-msgname').text(error_msg);
+            $("#first_name").addClass('is-invalid');
+            $('#error-msgname').hide();
+            $('.errormsg').hide();
+            return true;
+        } else if ((first_name == "")) {
+            $('#error-msgname').text(error_msg);
+            $("#first_name").addClass('is-invalid');
+            $("#first_name").focus();
+            $('#error-msgname').show();
+            $('.errormsg').show();
+            return false;
+        } else {
+            $('#error-msgname').text('');
+            $("#first_name").removeClass('is-invalid');
+            $('#error-msgname').hide();
+            $('.errormsg').hide();
+            return true;
+        }
+
+    }
+
+
+  
+
+
+
+    function register_workshop() { 
+        var program = $("#program").val();
+        var fname = $("#first_name").val();
+        var lname = $("#last_name").val();
+        var email = $("#email_id").val();
+        var mobile = $("#mobile").val();
+        var collage_name = $("#c_name").val();
+        var city = $("#city").val();
+        var seats = $("#seats").val();
+
+        var mobile_country_code_id = $("#mobile_country_code_id").val();
+        var country_id = $("#country_id").val();
+        var state_id = $("#state_id").val();
+
+    
+        var error = 0;
+
+        var reff = $('#rff').val();
+        $('#error-user_exist').text('')
+        
+        if(check_fist_name_error(fname) === false) {
+            error = 1;
+        }
+        if(check_last_name_error(lname) === false){
+            error = 1;
+        }
+        if(check_mail1_error(email) === false){
+            error = 1;
+        }
+        if(check_mobile_error(mobile) === false){
+         error = 1;
+        }
+        if(check_collage_name_error(collage_name) === false){
+          error = 1;
+        }
+        if(check_city_name_error(city) === false){
+         error = 1;
+        }
+        if(check_program_error(program) === false){
+           error = 1;
+        }
+        if(check_seats_error(seats) === false){
+           error = 1;
+        }
+
+        if(check_mobile_country_code_id_error(mobile_country_code_id) === false){
+           error = 1;
+        }
+        if(check_agree_error() === false){
+           error = 1;
+        }
+        if(check_country_id_error(country_id) === false){
+           error = 1;
+        }
+        if(check_state_id_error(state_id) === false){
+           error = 1;
+        }
+        
+      if(error){
+         return false;
+      }
+
+
+   
+        $.ajax({
+            url: '/ajax/add-student-registration',
+            data: new FormData(document.querySelector('#user_signup')),
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token()  }}'
+                },
+            beforeSend: function() { 
+                // $('.loader').show()
+            },
+            success: function(result) {  
+
+                if(result.errors.email_id[0]){
+                      $('#error-user_exist').text(result.errors.email_id[0])
+                }
+                
+            },
+            error: function(data) { console.log(data)
+                // alert('Error in Data Processing. Please try Again.');
+                // return false;
+            }
+        });
+
+
+
+    }
+</script>
+
+
+
+<script>
+    function check_program_error(program) {
+
+        var program = $("#program").val();
+        var error_msg = 'Please Select WorkShop Type.';
+        $.ajax({
+            url: '/ajax/get-seat',
+            data: { program_id : $('#program').val() },
+            type: 'GET',
+            dataType: 'json',
+            success: function(result) {
+
+                $('#seats').html(result['html']);
+
+
+                if (result['count'] > 1) {
+                    $('#seat-container').show();
+                } else {
+                    $('#seat-container').hide();
+
+                }
+            }
+        });
+
+
+        if ((program == 0)) {
+            $("#error-msgworktype").text(error_msg);
+            $("#program").addClass('is-invalid');
+            $('#select-error-program .form-select ').addClass('is-invalid');
+
+            $('#error-msgworktype').show();
+            return false;
+        } else {
+            $("#error-msgworktype").text('');
+            $('#select-error-program .form-select ').removeClass('is-invalid');
+            $('#error-msgworktype').hide();
+            return true;
+        }
+    }
+
+    function vpb_refresh_aptcha() {
+
+        return $("#vpb_captcha_code").val('').focus(), document.images['captchaimg'].src = document.images['captchaimg'].src.substring(0, document.images['captchaimg'].src.lastIndexOf("?")) + "?rand=" + Math.random() * 1000;
+    }
+
+
+
+ 
+
+
+    function login_workshop() {
+
+        var login_email = $("#login_email").val();
+        var login_reg = $("#login_reg").val();
+        if ((check_login_email_error(login_email) != 1) || (check_login_reg_error(login_reg) != 1)) {
+            $("#show_login_form_workshop").css('border-color', 'red');
+            $("#error_msg_login").show();
+            return false;
+
+        }
+
+
+
+        var email = $('#login_email').val();
+        var reg = $('#login_reg').val();
+        $.ajax({
+            url: 'tryst_login.php',
+            data: {
+                'Email': email,
+                'RegId': reg
+            },
+            type: 'POST',
+            success: function(result) {
+                if (result == 0) {
+                    $('#error-msg1login').show();
+                    $('#error-msg2login').show();
+                    $('#show_login_form_workshop').css('border-color', 'red');
+
+                    return false;
+                } else {
+
+                    window.location.href = "../wep.php?r=" + result;
+                    $("#landing_busy_login").hide();
+                }
+            },
+            error: function(data) {
+                alert('Error in Data Processing. Please try Again.');
+                $("#landing_busy_login").hide();
+                return false;
+            }
+        });
+
+    }
+</script>
+<script>
+    $('document').ready(function() {
+        $('.accordions').trigger('click');
+    });
+
+
+  
+</script>
+<script>
+
+// for searchable select 
+    dselect(document.querySelector('#mobile_country_code_id'), {   search: true   });
+    dselect(document.querySelector('#country_id'), {   search: true   });
+    dselect(document.querySelector('#state_id'), {   search: true   });
+    dselect(document.querySelector('#program'), {   search: true   });
+
+</script>
